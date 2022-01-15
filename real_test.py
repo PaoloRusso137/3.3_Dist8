@@ -39,7 +39,7 @@ model = model.to(args.device)
  
 #### Test best model on test set
 best_model_state_dict = torch.load("/content/drive/MyDrive/3.3_Dist8/best_model.pth")["model_state_dict"]
-model.load_state_dict(best_model_state_dict)
+model.load_state_dict(best_model_state_dict, strict=False)
  
 recalls, recalls_str = test.test(args, test_ds, model)
 logging.info(f"Recalls on {test_ds}: {recalls_str}")
